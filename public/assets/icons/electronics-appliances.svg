@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="64" height="64" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Plug -->
+  <path d="M9 6v4M13 6v4M7 10h8a3 3 0 0 1 0 6H9"/>
+  <path d="M9 16v2a3 3 0 0 0 3 3h1"/>
+  <!-- Appliance outline -->
+  <rect x="2.5" y="5.5" width="7" height="6.5" rx="1.2"/>
+  <circle cx="6" cy="8.75" r="1.6"/>
+</svg>

@@ -1,0 +1,14 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Block sensitive routes
+Disallow: /admin/
+Disallow: /dashboard/
+Disallow: /login
+Disallow: /register
+Disallow: /password
+
+# Sitemap location
+Sitemap: https://eranplastindoutama.co.id/sitemap.xml
+

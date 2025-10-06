@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    .pause-animate{
+        animation-play-state: paused;
+    }
+
+    .animation-pause {
+    animation-play-state: paused;
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 300ms ease-in-out;
+    }
+
+    .carousel-cell {
+        margin-right: 20px;
+    }
+
+    .carousel-cell img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+    }
+    .flickity-page-dots {
+        bottom: -30px;
+    }
+
+    .flickity-page-dots .dot {
+        width: 12px;
+        height: 12px;
+        margin: 0 5px;
+        border-radius: 50%;
+        background-color: #ccc;
+        opacity: 1;
+        transition: background-color 0.3s ease;
+    }
+
+    .flickity-page-dots .dot.is-selected {
+        background-color: #333;
+    }
+
+}

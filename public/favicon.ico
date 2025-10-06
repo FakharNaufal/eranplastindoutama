@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /dashboard/
+Allow: /
+
+Sitemap: https://eranplastindoutama.co.id/sitemap.xml
