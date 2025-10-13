@@ -42,6 +42,9 @@ class AppointmentController extends Controller
             $newAppointment = Appointment::create($validated);
         });
         return redirect()->route('front.appointment')->with('success', 'Appointment created successfully');
+
+        
+
     }
 
     /**

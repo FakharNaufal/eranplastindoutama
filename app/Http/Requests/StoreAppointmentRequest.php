@@ -30,6 +30,7 @@ class StoreAppointmentRequest extends FormRequest
             'product_id' => ['required', 'integer'],
             'other_product'=> ['required_if:product_id,other','nullable','string','max:255'],
             'brief' => ['required', 'string', 'max:65535'],
+            'g-recaptcha-response' => ['required', 'captcha'],
         ];
     }
 
@@ -47,5 +48,13 @@ class StoreAppointmentRequest extends FormRequest
                 $v->errors()->add('product_id', 'Selected product is invalid.');
             }
         });
+    }
+
+    public function messages(): array
+    {
+        return [
+            'g-recaptcha-response.required' => __('Mohon verifikasi reCAPTCHA.'),
+            'g-recaptcha-response.captcha'  => __('Verifikasi reCAPTCHA gagal, silakan coba lagi.'),
+        ];
     }
 }
