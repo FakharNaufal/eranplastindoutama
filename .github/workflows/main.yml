@@ -1,0 +1,54 @@
+name: Build & Deploy to Hostinger (FTP)
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, bcmath, pdo_mysql
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install Node packages & build assets
+        run: |
+          npm ci
+          npm run build
+
+      - name: Remove dev artifacts to keep upload small
+        run: |
+          rm -rf node_modules
+          rm -rf .github
+
+      - name: Deploy via FTP to Hostinger
+        uses: dawidd6/action-ftp-deploy@v4
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: /public_html/
+          exclude: |
+            .git*
+            .github
+            node_modules
+            .env
+            tests
+            .vscode
+            .gitignore
