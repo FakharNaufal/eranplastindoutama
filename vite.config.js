@@ -8,6 +8,10 @@ export default defineConfig({
       refresh: true,
     }),
   ],
+  build: {
+        outDir: 'public/build',
+        manifest: true,
+    },
   server: {
     // jalankan dev server bisa diakses dari domain-mu
     host: '127.0.0.1',          // hindari [::1]
@@ -23,5 +27,5 @@ export default defineConfig({
       protocol: 'ws',               // gunakan 'wss' jika situsmu HTTPS
       clientPort: 5173,
     },
-  },
+  }
 })
