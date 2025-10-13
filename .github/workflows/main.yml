@@ -11,8 +11,10 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Setup PHP
+      - name: Setup PHP 8.2
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.2'
@@ -25,25 +27,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
+          cache: 'npm'
 
-      - name: Install Node packages & build assets
+      - name: Install Node packages & Build assets
         run: |
           npm ci
           npm run build
 
-      - name: Remove dev artifacts to keep upload small
+      - name: Clean local unneeded files
         run: |
           rm -rf node_modules
-          rm -rf .github
+          # jika kamu menyimpan file dev-only, hapus di sini sebelum upload
 
-      - name: Deploy via FTP to Hostinger
+      - name: Deploy full app to /eran_app on Hostinger via FTP
         uses: dawidd6/action-ftp-deploy@v4
         with:
           ftp-server: ${{ secrets.FTP_SERVER }}
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
+          ftp-port: ${{ secrets.FTP_PORT || '21' }}
           local-dir: ./
-          server-dir: /public_html/
+          server-dir: /eran_app
           exclude: |
             .git*
             .github
@@ -52,3 +56,16 @@ jobs:
             tests
             .vscode
             .gitignore
+
+      - name: Deploy public to public_html
+        uses: dawidd6/action-ftp-deploy@v4
+        with:
+          ftp-server: ${{ secrets.FTP_SERVER }}
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          ftp-port: ${{ secrets.FTP_PORT || '21' }}
+          local-dir: ./public/
+          server-dir: /public_html
+          exclude: |
+            .env
+            .htaccess
