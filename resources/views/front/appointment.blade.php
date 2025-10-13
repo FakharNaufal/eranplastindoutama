@@ -26,7 +26,7 @@
 
   {{-- CONTENT --}}
   @php
-    $companyEmail    = 'marketing@platindoutama.co.id';
+    $companyEmail    = 'marketing@eranplastindoutama.co.id';
     $companyPhone    = '021-8671165';
     $companyWhatsApp = '0813 9331 0145';
     $mapsUrl         = 'https://www.google.com/maps/place/PT.+Eran+Plastindo+Utama/@-6.4516257,106.9419563,1501m/data=!3m1!1e3!4m6!3m5!1s0x2e699500619f80b7:0xbf5c7dfe444c2430!8m2!3d-6.451335!4d106.941799!16s%2Fg%2F11y5ghb8z0';

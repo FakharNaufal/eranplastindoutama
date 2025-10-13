@@ -62,16 +62,16 @@ class FrontController extends Controller
         return view('front.ourservice', compact('products'));
     }
 
-    public function news(){
-        return view('front.news',);
+    public function News(){
+        return view('front.News',);
     }
     public function news_details1($slug = null){
-        return view('front.news_details1',);
+        return view('front.News_details1',);
     }
      public function news_details2($slug = null){
-        return view('front.news_details2',);
+        return view('front.News_details2',);
     }
      public function news_details3($slug = null){
-        return view('front.news_details3',);
+        return view('front.News_details3',);
     }
 }

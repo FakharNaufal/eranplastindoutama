@@ -31,11 +31,11 @@ Route::get('/team',[FrontController::class, 'team'])->name('front.team');
 Route::get('/about',[FrontController::class, 'about'])->name('front.about');
 Route::get('/appointment',[FrontController::class, 'appointment'])->name('front.appointment');
 Route::get('/ourservice',[FrontController::class, 'ourservice'])->name('front.ourservice');
-Route::get('/news',[FrontController::class, 'news'])->name('front.news');
+Route::get('/News',[FrontController::class, 'News'])->name('front.News');
 Route::post('/appointment/store',[FrontController::class, 'appointment_store'])->name('front.appointment_store');
-Route::get('/news/details1', [FrontController::class, 'news_details1'])->name('front.news_details1');
-Route::get('/news/details2', [FrontController::class, 'news_details2'])->name('front.news_details2');
-Route::get('/news/details3', [FrontController::class, 'news_details3'])->name('front.news_details3');
+Route::get('/News/details1', [FrontController::class, 'news_details1'])->name('front.news_details1');
+Route::get('/News/details2', [FrontController::class, 'news_details2'])->name('front.news_details2');
+Route::get('/News/details3', [FrontController::class, 'news_details3'])->name('front.news_details3');
 Route::get('/lang/{locale}', function ($locale) {
     if (in_array($locale, ['id', 'en'])) {
         Session::put('locale', $locale);

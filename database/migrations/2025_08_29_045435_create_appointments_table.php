@@ -19,7 +19,6 @@ return new class extends Migration
             $table->date('meeting_at');
             $table->text('brief');
             $table->foreignId('product_id')->constrained()->onDelete('cascade');
-            // database/migrations/xxxx_xx_xx_create_appointments_table.php
             $table->string('other_product')->nullable();
             $table->softDeletes();
             $table->timestamps();
