@@ -1,0 +1,60 @@
+name: Build & Deploy to Hostinger (FTP) - SamKirkland
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+
+      - name: Install composer deps
+        run: composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Build frontend
+        run: |
+          npm ci
+          npm run build
+
+      - name: Clean up to reduce upload size
+        run: |
+          rm -rf node_modules
+          rm -rf .github
+
+      # Deploy whole app to /eran_app (outside public_html)
+      - name: FTP Deploy - full app (eran_app)
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || '21' }}
+          local-dir: ./
+          server-dir: /eran_app
+          # exclude can be used if needed:
+          # exclude: .git*,.github,node_modules,.env,tests
+
+      # Deploy only public folder to public_html
+      - name: FTP Deploy - public_html
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          port: ${{ secrets.FTP_PORT || '21' }}
+          local-dir: ./public/
+          server-dir: /public_html
