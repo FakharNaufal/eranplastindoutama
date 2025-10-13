@@ -5,19 +5,14 @@
 /public/hot
 /public/storage
 /storage/*.key
-/storage/*.cache
-/storage/debugbar
 /storage/logs/*
 /storage/framework/cache/data
 /storage/framework/sessions
 /storage/framework/views
-/.idea
 /.vscode
+/.idea
 /.DS_Store
 npm-debug.log
 yarn-error.log
-/public/build # jika kamu build di server; atau !public/build jika mau commit build
-/.sass-cache
-Homestead.yaml
-Homestead.json
+
 
