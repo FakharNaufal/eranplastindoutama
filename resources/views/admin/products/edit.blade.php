@@ -35,9 +35,21 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="thumbnail" :value="__('thumbnail')" />
-                        <img src="{{ Storage::url($product->thumbnail) }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
-                        <x-text-input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" autofocus autocomplete="thumbnail" />
+                        <x-input-label for="thumbnail" :value="__('Thumbnail')" />
+                        @php
+                        $thumb = $product->thumbnail;
+                        // jika tersimpan JSON/array, ambil item pertama
+                        if(is_string($thumb) && $thumb !== '') {
+                            $thumbUrl = Storage::url($thumb);
+                        } elseif(is_array($thumb) && count($thumb)) {
+                            $thumbUrl = Storage::url($thumb[0]);}
+                         else {$thumbUrl = null;}
+                         @endphp
+                        @if($thumbUrl)
+                            <img src="{{ $thumbUrl }}" alt="" class="rounded-2xl object-cover w-[90px] h-[90px]">
+                        @endif
+
+                        <input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" autofocus autocomplete="thumbnail" />
                         <x-input-error :messages="$errors->get('thumbnail')" class="mt-2" />
                     </div>
 

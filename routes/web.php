@@ -24,7 +24,7 @@ use App\Models\Testimonial;
 use App\Models\ProjectClient;
 use App\Models\CompanyAbout;
 use App\Models\OurTeam;
-
+use Illuminate\Http\Request;
 
 Route::get('/',[FrontController::class, 'index'])->name('front.index');
 Route::get('/team',[FrontController::class, 'team'])->name('front.team');
@@ -36,23 +36,26 @@ Route::post('/appointment/store',[FrontController::class, 'appointment_store'])-
 Route::get('/news/details1', [FrontController::class, 'news_details1'])->name('front.news_details1');
 Route::get('/news/details2', [FrontController::class, 'news_details2'])->name('front.news_details2');
 Route::get('/news/details3', [FrontController::class, 'news_details3'])->name('front.news_details3');
-Route::get('/lang/{locale}', function ($locale) {
-    if (in_array($locale, ['id', 'en'])) {
-        Session::put('locale', $locale);
-    }
-    return redirect()->back();
-})->name('lang.switch');
 
+Route::get('locale/{locale}', function($locale){
+    if (! in_array($locale, ['id','en'])) $locale = config('app.locale');
+    session(['locale' => $locale]);
+    return redirect(url()->previous() ?: route('front.index'));
+})->name('locale.switch');
 
-
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/debug-session', function (Request $req) {
+        return response()->json([
+            'csrf_token' => csrf_token(),
+            'session_id' => session()->getId(),
+            'session_exists' => file_exists(storage_path('framework/sessions/' . session()->getId())),
+            'cookies' => $req->cookies->all(),
+        ]);
+    });
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');

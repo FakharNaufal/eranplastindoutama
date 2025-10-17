@@ -4,12 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-use App\Models\User;
-use Spatie\Permission\Models\Role;
-use Spatie\Permission\Models\Permission;
-use Database\Seeders\RolePermissionSeeder;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
+use Illuminate\Support\Facades\Log;
 
 
 class AppServiceProvider extends ServiceProvider
@@ -27,17 +24,26 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
-        Gate::before(function($user, $ability) {
-            if ($user->hasRole('superadmin')) {
+    // Force HTTPS in production (safe)
+    try {
+        if (app()->environment('production')) {
+            URL::forceScheme('https');
+        }
+    } catch (\Throwable $e) {
+        Log::warning('Unable to force https: '.$e->getMessage());
+    }
+
+    // Gate global — aman jika $user null
+    Gate::before(function ($user, $ability) {
+        try {
+            if ($user && method_exists($user, 'hasRole') && $user->hasRole('superadmin')) {
                 return true;
             }
-            if (app()->environment('production')){
-                URL::forceScheme('https');
-            }
-            {
-                Vite::useCspNonce(fn () => request()->attributes->get('csp_nonce'));
-            }
-        });
+        } catch (\Throwable $e) {
+            Log::warning('Gate::before callback error: '.$e->getMessage());
+        }
+
+        return null;
+    });
     }
 }

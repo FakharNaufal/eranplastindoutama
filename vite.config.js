@@ -10,7 +10,7 @@ export default defineConfig({
   ],
   build: {
         outDir: 'public/build',
-        manifest: true,
+        manifest: false,
     },
   server: {
     // jalankan dev server bisa diakses dari domain-mu

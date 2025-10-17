@@ -33,16 +33,24 @@
                     </div>
 
                     <div class="mt-4">
-                        <x-input-label for="thumbnail" :value="__('thumbnail')" />
-                        <x-text-input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" required autofocus autocomplete="thumbnail" />
+                        <x-input-label for="thumbnail" :value="__('Thumbnail')" />
+                        <input id="thumbnail" class="block mt-1 w-full" type="file" name="thumbnail" accept="image/*" required />
                         <x-input-error :messages="$errors->get('thumbnail')" class="mt-2" />
                     </div>
 
-                    <div class="mt-4">
-                        <x-input-label for="about" :value="__('about')" />
-                        <textarea name="about" id="about" cols="30" rows="5" class="border border-slate-300 rounded-xl w-full"></textarea>
+                        <div class="mt-4">
+                        <x-input-label for="about" :value="__('')" />
+                        <textarea
+                            name="about"
+                            id="about"
+                            cols="30"
+                            rows="5"
+                            class="border border-slate-300 rounded-xl w-full"
+                            placeholder="Write a short description of this product..."
+                        >{{ old('about', '') }}</textarea>
                         <x-input-error :messages="$errors->get('about')" class="mt-2" />
                     </div>
+
 
                     <div class="flex items-center justify-end mt-4">
 

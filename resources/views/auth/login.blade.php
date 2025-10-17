@@ -3,8 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <form method="POST" action="{{ route('login') }}">
-        @csrf
-
+       @csrf
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -45,3 +44,4 @@
         </div>
     </form>
 </x-guest-layout>
+<js></js>

@@ -45,15 +45,16 @@
 
             {{-- KANAN: Banner --}}
             <figure class="order-1 lg:order-2" data-reveal="left">
-              <div class="rounded-2xl border border-[#E8EAF2] overflow-hidden bg-white shadow-sm">
-                <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] bg-[#F6F7FA]">
-                  <img src="{{ Storage::url($hero->banner) }}"
-                       alt="{{ __('home.hero_alt') }}"
-                       loading="lazy"
-                       sizes="(min-width:1024px) 560px, 100vw"
-                       class="w-full h-full object-contain sm:object-cover object-center"/>
+                <div class="rounded-2xl border border-[#E8EAF2] overflow-hidden bg-white">
+                    <div class="aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/9] bg-[#F6F7FA]">
+                        <img
+                        src="{{ Storage::url($hero->banner)}}"
+                        alt="{{ __('home.hero_alt') }}"
+                        loading="lazy"
+                        sizes="(min-width:1024px) 560px, 100vw"
+                        class="w-full h-full object-contain sm:object-cover object-center"/>
+                    </div>
                 </div>
-              </div>
             </figure>
           </div>
         @empty
@@ -416,6 +417,16 @@
   <script src="{{ asset('js/accordion.js') }}"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
   <script src="{{ asset('js/modal-video.js') }}"></script>
+  <script>
+  $(function(){
+    if ($('.main-carousel').length && typeof $.fn.flickity === 'function') {
+      $('.main-carousel').flickity({ cellAlign: 'left', contain: true, autoPlay: 4000 });
+    } else {
+      console.warn('Flickity not available or .main-carousel missing');
+    }
+  });
+</script>
+
 
   {{-- Reveal + Stagger + CountUp --}}
 

@@ -4,8 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link rel="icon" href="{{ asset('assets/logo/Logo_PT_ERAN_PLASTINDO_UTAMA.png') }}" type="image/png">
-        
+        <link rel="icon" href="{{ asset('asset/logo/Logo_PT_ERAN_PLASTINDO_UTAMA.png') }}" type="image/png">
+
         <title>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Fonts -->

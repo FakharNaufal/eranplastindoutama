@@ -1,0 +1,13 @@
+﻿=== ENV INFO ===
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]User: laptop-lr7hv6ee\user
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]PHP: PHP 8.4.11 (cli) (built: Jul 29 2025 18:02:29) (NTS Visual C++ 2022 x64)
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]Composer: Composer version 2.8.10 2025-07-10 19:08:33
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]Node: v22.15.0
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]NPM: 10.9.2
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]=== PROJECT PATHS ===
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]ProjectRoot: C:\laragon\www\Eran_Plastindo
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]PublicExists: True
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]PublicIndex: True
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]PublicIndexContent: 
+  === STORAGE & SYMLINK === PublicStorageExists: False PublicStorageRealPath: N/A StorageFilesSample:  System.Object[]System.Object[]

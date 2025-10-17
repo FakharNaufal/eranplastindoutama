@@ -8,7 +8,7 @@
                     <a href="{{ route('dashboard') }}" class="flex items-center gap-2">
                         <img src="{{ asset('assets/logo/Logo_PT_ERAN_PLASTINDO_UTAMA.png') }}"
                         alt="Eran Plastindo" class="h-8 w-auto">
-                        <span class="hidden sm:inline font-semibold">Eran Plastindo</span>
+                        <span class="hidden sm:inline font-semibold">Eran Plastindo Utama</span>
                     </a>
                 </div>
 

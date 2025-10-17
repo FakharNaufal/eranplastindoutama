@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Models\Appointment;
 use App\Models\CompanyAbout;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
@@ -22,5 +23,9 @@ class Product extends Model
     public function appointments()
     {
         return $this->hasMany(Appointment::class);
+    }
+    public function getThumbnailUrlAttribute()
+    {
+    return $this->thumbnail ? Storage::url($this->thumbnail) : asset('images/no-image.png');
     }
 }

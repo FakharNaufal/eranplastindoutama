@@ -85,13 +85,13 @@
             x-transition:leave-end="opacity-0 scale-95 -translate-y-1 origin-top-right"
             class="absolute right-0 mt-2 w-36 bg-white/95 backdrop-blur border border-[#E8EAF2] rounded-lg shadow-lg z-50"
           >
-            <a href="{{ route('lang.switch','id') }}"
+            <a href="{{ route('locale.switch','id') }}"
                class="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 rounded-t-lg transition"
                @click="langOpen=false">
               <img src="{{ asset('assets/flags/id.png') }}" alt="Indonesia" class="w-6 h-4 rounded-sm">
               Bahasa
             </a>
-            <a href="{{ route('lang.switch','en') }}"
+            <a href="{{ route('locale.switch','en') }}"
                class="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 rounded-b-lg transition"
                @click="langOpen=false">
               <img src="{{ asset('assets/flags/en.png') }}" alt="English" class="w-6 h-4 rounded-sm">
@@ -187,13 +187,13 @@
              x-transition:leave-start="opacity-100 scale-100 translate-y-0 origin-top"
              x-transition:leave-end="opacity-0 scale-95 -translate-y-1 origin-top"
              class="absolute left-1/2 transform -translate-x-1/2 mt-2 w-40 bg-white/95 backdrop-blur border border-[#E8EAF2] rounded-lg shadow z-50">
-          <a href="{{ route('lang.switch','id') }}"
+          <a href="{{ route('locale.switch','id') }}"
              class="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 rounded-t-lg"
              @click="open=false; langMobile=false">
             <img src="{{ asset('assets/flags/id.png') }}" alt="Indonesia" class="w-6 h-4 rounded-sm">
             Bahasa
           </a>
-          <a href="{{ route('lang.switch','en') }}"
+          <a href="{{ route('locale.switch','en') }}"
              class="flex items-center gap-2 px-3 py-2 text-sm hover:bg-gray-100 rounded-b-lg"
              @click="open=false; langMobile=false">
             <img src="{{ asset('assets/flags/en.png') }}" alt="English" class="w-6 h-4 rounded-sm">

@@ -269,7 +269,7 @@
                  onerror="this.onerror=null;this.src='{{ asset('assets/products/placeholder.png') }}';">
           </div>
           <figcaption class="mt-3 md:mt-4">
-            <p class="text-base md:text-lg font-bold text-gray-900">{{ __('products.p13_name') }}</p>
+            <p class="text-base md:text-lg font-bold text-gray-900">{{ __('products.p14_name') }}</p>
           </figcaption>
         </figure>
       </li>
@@ -279,14 +279,14 @@
       <li data-cat="Amenities" x-show="isShown ? isShown($el) : true" x-transition.opacity data-reveal="fade-up">
         <figure class="rounded-2xl border border-[#E8EAF2] bg-white p-3 md:p-4 shadow-sm h-full">
           <div class="aspect-square flex items-center justify-center overflow-hidden rounded-lg bg-white">
-            <img src="{{ asset('assets/products/Home6.png') }}"
+            <img src="{{ asset('assets/products/Home4.png') }}"
                  alt="{{ __('products.p13_alt') }}"
                  loading="lazy" width="560" height="560"
                  class="max-w-full max-h-full object-contain object-center"
                  onerror="this.onerror=null;this.src='{{ asset('assets/products/placeholder.png') }}';">
           </div>
           <figcaption class="mt-3 md:mt-4">
-            <p class="text-base md:text-lg font-bold text-gray-900">{{ __('products.p13_name') }}</p>
+            <p class="text-base md:text-lg font-bold text-gray-900">{{ __('products.p15_name') }}</p>
           </figcaption>
         </figure>
       </li>
@@ -296,14 +296,14 @@
       <li data-cat="Farmation" x-show="isShown ? isShown($el) : true" x-transition.opacity data-reveal="fade-up">
         <figure class="rounded-2xl border border-[#E8EAF2] bg-white p-3 md:p-4 shadow-sm h-full">
           <div class="aspect-square flex items-center justify-center overflow-hidden rounded-lg bg-white">
-            <img src="{{ asset('assets/products/Home4.png') }}"
+            <img src="{{ asset('assets/products/Home6.png') }}"
                  alt="{{ __('products.p13_alt') }}"
                  loading="lazy" width="560" height="560"
                  class="max-w-full max-h-full object-contain object-center"
                  onerror="this.onerror=null;this.src='{{ asset('assets/products/placeholder.png') }}';">
           </div>
           <figcaption class="mt-3 md:mt-4">
-            <p class="text-base md:text-lg font-bold text-gray-900">{{ __('products.p13_name') }}</p>
+            <p class="text-base md:text-lg font-bold text-gray-900">{{ __('products.p16_name') }}</p>
           </figcaption>
         </figure>
       </li>
@@ -331,7 +331,10 @@
     { "@type":"ListItem", "position":9, "name":"{{ __('products.p10_name') }}" },
     { "@type":"ListItem", "position":10, "name":"{{ __('products.p11_name') }}" },
     { "@type":"ListItem", "position":11, "name":"{{ __('products.p12_name') }}" },
-    { "@type":"ListItem", "position":12, "name":"{{ __('products.p13_name') }}" }
+    { "@type":"ListItem", "position":12, "name":"{{ __('products.p13_name') }}" },
+    { "@type":"ListItem", "position":13, "name":"{{ __('products.p14_name') }}" },
+    { "@type":"ListItem", "position":14, "name":"{{ __('products.p15_name') }}" },
+    { "@type":"ListItem", "position":15, "name":"{{ __('products.p15_name') }}" }
   ]
 }
 </script>
