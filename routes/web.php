@@ -1,5 +1,6 @@
 <?php
 
+
 use App\Http\Controllers\CompanyAboutController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -12,6 +13,8 @@ use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\HeroSectionController;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\App;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
 use App\Models\CompanyStatistic;
@@ -33,6 +36,17 @@ Route::post('/appointment/store',[FrontController::class, 'appointment_store'])-
 Route::get('/news/details1', [FrontController::class, 'news_details1'])->name('front.news_details1');
 Route::get('/news/details2', [FrontController::class, 'news_details2'])->name('front.news_details2');
 Route::get('/news/details3', [FrontController::class, 'news_details3'])->name('front.news_details3');
+Route::get('/lang/{locale}', function ($locale) {
+    if (in_array($locale, ['id', 'en'])) {
+        Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
+
+
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

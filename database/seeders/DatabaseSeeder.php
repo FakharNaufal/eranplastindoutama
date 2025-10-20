@@ -17,6 +17,5 @@ class DatabaseSeeder extends Seeder
         // User::factory(10)->create();
 
         $this->call(RolePermissionSeeder::class);
-        $this->call(AppointmentSeeder::class);
     }
 }
